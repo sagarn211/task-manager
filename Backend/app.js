@@ -12,22 +12,12 @@ const connectDB = require('./db/db');
 connectDB();
 
 app.use(cors({
-    origin: (origin, callback) => {
-        const allowedOrigins = process.env.CLIENT_ORIGIN 
-            ? process.env.CLIENT_ORIGIN.split(',').map(s => s.trim()) 
-            : [];
-        
-        // Allow requests with no origin (like mobile apps or curl) or if origin is in whitelist
-        if (!origin || allowedOrigins.indexOf(origin) !== -1 || allowedOrigins.length === 0) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
+    origin: true,
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept']
 }));
+app.options('*', cors());
 app.use(cookieParser());
 app.use(express.json());
 
