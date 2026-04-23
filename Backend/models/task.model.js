@@ -20,6 +20,14 @@ const taskSchema = new mongoose.Schema({
         enum: ['low', 'medium', 'high'],
         default: 'medium'
     },
+    dueDate: {
+        type: Date
+    },
+    category: {
+        type: String,
+        enum: ['Work', 'Personal', 'Shopping', 'Health', 'Other'],
+        default: 'Work'
+    },
     user:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',

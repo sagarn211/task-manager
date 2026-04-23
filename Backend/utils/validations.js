@@ -16,7 +16,11 @@ const taskSchema = z.object({
   title: z.string().min(3, 'Title must be at least 3 characters'),
   description: z.string().optional(),
   status: z.enum(['pending', 'in-progress', 'completed']).optional(),
-  priority: z.enum(['low', 'medium', 'high']).optional()
+  priority: z.enum(['low', 'medium', 'high']).optional(),
+  dueDate: z.string().optional().refine((val) => !val || !isNaN(Date.parse(val)), {
+    message: "Invalid date format",
+  }),
+  category: z.enum(['Work', 'Personal', 'Shopping', 'Health', 'Other']).optional()
 });
 
 module.exports = {

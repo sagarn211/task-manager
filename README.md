@@ -1,4 +1,4 @@
-# Backend Project
+# Task-manager
 
 ## Run
 
@@ -6,6 +6,12 @@
 cd Backend
 npm i
 npm start
+```
+
+```bash
+cd Frontend
+npm i
+npm run dev
 ```
 
 
