@@ -137,7 +137,7 @@ export default function DashboardPage() {
           <header className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
               <h1 className="text-3xl font-display font-black tracking-tight text-slate-900 dark:text-white mb-2">
-                Good morning, {user?.name.split(' ')[0]}
+                Welcome, {user?.name.split(' ')[0]}
               </h1>
               <p className="text-muted text-sm font-medium">
                 You have <span className="text-primary-600 dark:text-primary-400 font-bold">{stats.pending} tasks</span> requiring your attention today.
